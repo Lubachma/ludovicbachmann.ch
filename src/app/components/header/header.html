@@ -1,0 +1,25 @@
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__logo font-mono" (click)="scrollTo('hero')">
+      &lt;Ludovic /&gt;
+    </a>
+
+    <nav class="header__nav" [class.open]="mobileMenuOpen()">
+      @for (link of navLinks; track link.fragment) {
+        <a class="header__link" (click)="scrollTo(link.fragment)">
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <button class="header__theme-toggle" (click)="toggleTheme()" aria-label="Toggle theme">
+        {{ isDark() ? '&#9788;' : '&#9790;' }}
+      </button>
+
+      <button class="header__burger" (click)="toggleMobileMenu()" aria-label="Menu">
+        <span [class.open]="mobileMenuOpen()"></span>
+      </button>
+    </div>
+  </div>
+</header>

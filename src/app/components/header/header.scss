@@ -1,0 +1,139 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-bg-alt);
+  backdrop-filter: blur(10px);
+  transition: background-color var(--transition-base);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+  }
+
+  &__logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-primary-dark);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 4rem;
+      left: 0;
+      right: 0;
+      background: var(--color-bg);
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--color-bg-alt);
+      gap: 1rem;
+
+      &.open {
+        display: flex;
+      }
+    }
+  }
+
+  &__link {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color var(--transition-base);
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__theme-toggle {
+    background: none;
+    border: 1px solid var(--color-bg-alt);
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all var(--transition-base);
+
+    &:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+  }
+
+  &__burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      position: relative;
+      transition: background var(--transition-base);
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: var(--color-text);
+        left: 0;
+        transition: transform var(--transition-base);
+      }
+
+      &::before {
+        top: -7px;
+      }
+
+      &::after {
+        top: 7px;
+      }
+
+      &.open {
+        background: transparent;
+
+        &::before {
+          transform: rotate(45deg);
+          top: 0;
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+          top: 0;
+        }
+      }
+    }
+  }
+}

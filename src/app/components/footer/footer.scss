@@ -1,0 +1,39 @@
+.footer {
+  background: var(--color-bg-dark);
+  color: #f8fafc;
+  padding: 2rem 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      color: #f8fafc;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      transition: opacity var(--transition-base);
+
+      &:hover {
+        opacity: 1;
+        color: var(--color-primary-light);
+      }
+    }
+  }
+}

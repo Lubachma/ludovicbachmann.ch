@@ -1,0 +1,25 @@
+<section id="experience" class="section experience">
+  <div class="container">
+    <h2 class="experience__heading">Experience</h2>
+
+    <div class="experience__timeline">
+      @for (exp of experiences; track exp.id) {
+        <div class="experience__item">
+          <div class="experience__marker"></div>
+          <div class="experience__content">
+            <span class="experience__badge">{{ getTypeLabel(exp.type) }}</span>
+            <h3 class="experience__role">{{ exp.role }}</h3>
+            <p class="experience__company">{{ exp.company }} &mdash; {{ exp.location }}</p>
+            <p class="experience__date">{{ exp.startDate }} &mdash; {{ exp.endDate }}</p>
+            <p class="experience__description">{{ exp.description }}</p>
+            <div class="experience__tags">
+              @for (tech of exp.technologies; track tech) {
+                <span class="experience__tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

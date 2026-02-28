@@ -1,0 +1,107 @@
+@use "tailwindcss";
+
+/* ===== Google Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ===== Variables CSS Custom Properties ===== */
+:root {
+  /* Couleurs principales */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-secondary: #0f172a;
+  --color-accent: #06b6d4;
+
+  /* Couleurs texte */
+  --color-text: #1e293b;
+  --color-text-light: #64748b;
+  --color-text-inverse: #f8fafc;
+
+  /* Couleurs fond */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f1f5f9;
+  --color-bg-dark: #0f172a;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --section-padding: 5rem 0;
+
+  /* Transitions */
+  --transition-base: 0.3s ease;
+}
+
+/* ===== Mode sombre ===== */
+[data-theme='dark'] {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-primary-light: #60a5fa;
+  --color-secondary: #e2e8f0;
+  --color-accent: #22d3ee;
+
+  --color-text: #e2e8f0;
+  --color-text-light: #94a3b8;
+  --color-text-inverse: #0f172a;
+
+  --color-bg: #0f172a;
+  --color-bg-alt: #1e293b;
+  --color-bg-dark: #020617;
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Utilitaires ===== */
+.section {
+  padding: var(--section-padding);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
